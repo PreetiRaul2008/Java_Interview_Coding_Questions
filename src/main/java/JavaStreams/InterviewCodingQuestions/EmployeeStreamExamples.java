@@ -24,12 +24,12 @@ public class EmployeeStreamExamples {
         System.out.println("Employees group by department : " + empWithGroupByDept);
 
         // 3. Count total number of employees
-        Long countEmp = emplist.stream().count();
+        long countEmp = emplist.stream().count();
         System.out.println("Count of Employee using stream : " + countEmp);
 
         // 4. Find employee with maximum age
         Employee countByAge = emplist.stream()
-                .max(Comparator.comparing(emp -> emp.getAge()))
+                .max(Comparator.comparing(Employee::getAge))
                 .get();
         System.out.println("Maximum by Employee age : " + countByAge);
 
@@ -63,7 +63,7 @@ public class EmployeeStreamExamples {
 
         // 11. Department with maximum employees
         Map.Entry<String, Long> empWithMaxDept = emplist.stream()
-                .collect(Collectors.groupingBy(emp -> emp.getDepartNames(), Collectors.counting()))
+                .collect(Collectors.groupingBy(Employee::getDepartNames, Collectors.counting()))
                 .entrySet()
                 .stream()
                 .max(Map.Entry.comparingByValue())
@@ -93,7 +93,7 @@ public class EmployeeStreamExamples {
         // 14. Sort employees by salary (ascending order)
         List<Employee> salarySort = emplist.stream()
                 .sorted(Comparator.comparing(Employee::getSalary))
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("List of Employees by sorted salary : " + salarySort);
 
         // 15. Find second lowest salary
