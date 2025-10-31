@@ -11,7 +11,7 @@ public class IntermediateOperation {
 
         List<String> list = Arrays.asList("Preeti", "Rushi", "Sham", "Rrr");
 
-        //1. filter() - filters the stream and gove new stream. takes predicate<> interface
+        //1. filter() - filters the stream and give new stream. takes predicate<> interface
        Stream<String> filteredNames =  list.stream().filter(x -> x.startsWith("R"));
        //no filtering happens at this point because intermediate methods are lazy. It happens once terminal methods are called.
 
