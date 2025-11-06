@@ -40,11 +40,6 @@ public class FindFirstNegativeNumber {
                 j++;
             }
             else if ((j - i + 1) == windowSize) {
-                //remove the first element from the list as the calculations are already done so it is outdated
-                while (!negative.isEmpty() && negative.get(0) < i) {
-                    negative.remove(0);
-                }
-
                 //if no negative element is found in the window then return 0
                 if(negative.isEmpty()){
                     System.out.print(" "+0);
@@ -52,6 +47,11 @@ public class FindFirstNegativeNumber {
                 else{
                     //if found the negative number then print the 0th element as it would be the first one in the list
                     System.out.print(nums[negative.get(0)]+" ");
+                }
+
+                //remove the first element from the list as the calculations are already done so it is outdated
+                while (!negative.isEmpty() && negative.get(0) < i) {
+                    negative.remove(0);
                 }
 
                 //Increment the pointers

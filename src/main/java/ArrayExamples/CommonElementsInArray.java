@@ -12,19 +12,18 @@ public class CommonElementsInArray {
     public static void findCommonElements(int[] arr1, int[] arr2){
         Map<Integer, Integer> commonElements = new HashMap<>();
 
-        for(int i = 0; i < arr1.length; i++){
-            if (commonElements.containsKey(arr1[i])) {
-                commonElements.put(arr1[i], commonElements.get(arr1[i]) +1 );
-            }
-            else{
-                commonElements.put(arr1[i],1);
+        for (int j : arr1) {
+            if (commonElements.containsKey(j)) {
+                commonElements.put(j, commonElements.get(j) + 1);
+            } else {
+                commonElements.put(j, 1);
             }
         }
         System.out.print(" [ ");
-        for(int i = 0; i < arr2.length; i++){
-            if (commonElements.containsKey(arr2[i])){
-                System.out.print(arr2[i]+" ");
-                commonElements.remove(arr2[i]);
+        for (int j : arr2) {
+            if (commonElements.containsKey(j)) {
+                System.out.print(j + " ");
+                commonElements.remove(j);
             }
         }
         System.out.println("]");

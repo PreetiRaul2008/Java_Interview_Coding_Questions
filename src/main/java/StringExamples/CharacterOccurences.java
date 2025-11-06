@@ -18,6 +18,8 @@ public class CharacterOccurences {
         for(Map.Entry<Character, Integer> map : countMap.entrySet()){
             System.out.println(map.getKey() + " : " + map.getValue() + " ");
         }
+
+        /* Using stream */
         Map<Character, Long> countMap2 = s.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c, Collectors.counting()));
         System.out.println(countMap2);
     }
